@@ -1,0 +1,60 @@
+-- Create the database for the inventory management system
+CREATE DATABASE InventoryManagement;
+USE InventoryManagement;
+
+-- Create the User table
+CREATE TABLE User (
+    UserID INT AUTO_INCREMENT PRIMARY KEY,
+    Username VARCHAR(255) NOT NULL UNIQUE,
+    Password VARCHAR(255) NOT NULL,
+    UserType ENUM('Admin', 'Regular User') NOT NULL
+);
+
+-- Create the Item table
+CREATE TABLE Item (
+    ItemID INT AUTO_INCREMENT PRIMARY KEY,
+    ItemName VARCHAR(255) NOT NULL,
+    Description TEXT,
+    Quantity INT NOT NULL,
+    Price DECIMAL(10, 2) NOT NULL,
+    UserID INT NOT NULL,
+    FOREIGN KEY (UserID) REFERENCES User(UserID)
+);
+
+-- Sample admin user
+INSERT INTO User (Username, Password, UserType) VALUES ('admin', 'admin_password', 'Admin');
+
+-- Sample regular user
+INSERT INTO User (Username, Password, UserType) VALUES ('user', 'user_password', 'Regular User');
+
+
+
+----------------------------------------------------
+
+To implement the actions of adding, deleting (admin only), and fetching items in your MySQL-based inventory management system, you will need to use SQL queries within your application code. Here are sample SQL queries for these actions:
+
+
+1. Adding an item
+
+-- Insert a new item into the Item table
+
+INSERT INTO Item (ItemName, Description, Quantity, Price, UserID)
+VALUES ('Item1', 'Description for Item1', 10, 25.99, 1);
+
+
+----------------------------------------------------
+
+2. Deleting an item
+
+-- Delete an item by its ItemID (Assuming the user is an admin)
+
+DELETE FROM Item
+WHERE ItemID = 1; -- Replace 1 with the actual ItemID you want to delete
+
+----------------------------------------------------
+3. Fetching items
+To fetch items, you can use SELECT queries. Here's an example to retrieve all items:
+
+-- Fetch all items
+SELECT ItemID, ItemName, Description, Quantity, Price
+FROM Item;
