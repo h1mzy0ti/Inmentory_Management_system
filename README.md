@@ -35,8 +35,8 @@ Here's a visual representation of the ERD:
 +----------------+          +-----------------+
 | UserID (PK)    |          | ItemID (PK)     |
 | Username       |          | ItemName        |
-| Password       |          | Description      |
-| UserType       |          | Quantity         |
-+----------------+          | Price            |
-                           | UserID (FK)      |
-                           +-----------------+
+| Password       |          | Description     |
+| UserType       |          | Quantity        |
++----------------+          | Price           |
+                            | UserID (FK)     |
+                            +-----------------+
