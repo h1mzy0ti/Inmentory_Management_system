@@ -29,7 +29,7 @@ Functionality:
 
 Here's a visual representation of the ERD:
 
-
+"
 +----------------+          +-----------------+
 |     User       |          |       Item      |
 +----------------+          +-----------------+
@@ -40,3 +40,4 @@ Here's a visual representation of the ERD:
 +----------------+          | Price           |
                             | UserID (FK)     |
                             +-----------------+
+                            "
